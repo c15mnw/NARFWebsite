@@ -1,0 +1,29 @@
+<?PHP
+	include $_SERVER['DOCUMENT_ROOT'].'/../secure/includes/database_connect.inc';
+	
+    $query = "SELECT name,breed,origin,imported,mhc,susceptible,resistant,histocompatible,type FROM chickenLines WHERE susceptible = ?";
+
+	$parameters = array("s", $_POST['susceptible']);
+
+	$result = bePrepared($parameters,$query,$database);
+
+	echo "<table id=\"strainTable\">";
+	
+    while ($row = mysqli_fetch_object($result)) {
+
+		echo "<table class=\"table table-hover\">";
+		echo "<thead><tr><th width=\"35%\"></th><th width=\"65%\"></th></tr></thead>";
+		echo "<tbody><tr><td class=\"table-leftcol\">Name</td><td>".$row->name."</td></tr>";
+		echo "<tr><td class=\"table-leftcol\">Breed</td><td>".$row->breed."</td></tr>";
+		echo "<tr><td class=\"table-leftcol\">Origin</td><td>".$row->origin."</td></tr>";
+		echo "<tr><td class=\"table-leftcol\">Imported</td><td>".$row->imported."</td></tr>";
+		echo "<tr><td class=\"table-leftcol\">MHC</td><td>".$row->mhc."</td></tr>";
+		echo "<tr><td class=\"table-leftcol\">Susceptible</td><td>".$row->susceptible."</td></tr>";
+		echo "<tr><td class=\"table-leftcol\">Resistant</td><td>".$row->resistant."</td></tr>";
+		echo "<tr><td class=\"table-leftcol\">Histocompatible</td><td>".$row->histocompatible."</td></tr>";
+		echo "<tr><td class=\"table-leftcol\">Type</td><td>".$row->type."</td></tr>";
+		echo "</table>"; 
+    }
+
+	echo "</table>";
+?>

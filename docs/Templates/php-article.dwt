@@ -1,0 +1,259 @@
+<?PHP
+        include $_SERVER['DOCUMENT_ROOT'].'/../secure/includes/database_connect.inc';
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>National Avian Research Facility</title>
+    <!-- TemplateEndEditable -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="..//css/bootstrap.css" rel="stylesheet">
+    <link href="..//css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="..//css/docs.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,800' rel='stylesheet' type='text/css'>
+   
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="..//img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="..//img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="..//img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="..//img/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="..//img/ico/favicon.png">
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- TemplateEndEditable -->
+  </head>
+
+  <body><div id="wrap">
+
+    <!-- NAVBAR
+    ================================================== -->
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      
+
+           <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+             <a class="brand" href="..//index.html"><img src="..//img/logo-sm.png"></a>
+
+          <!-- <a class="brand" href="index.html"><img src="img/narf-logo.png" width="170" height="70"></a>
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed within .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+               <li class="active"><div class="well2 well-ard"><a href="../find-narf-chickens/index.html">Find NARF Chickens</a></div></li>
+             
+              <li class="dropdown">
+                <a href="../biological-toolbox/index.html">Biological Toolbox</a>
+                </li>
+              <li>
+                 <a href="../transgenics/index.html">Services</a>
+                <!-- <ul class="dropdown-menu">
+                  <li><a href="#">Farming Industry</a></li>
+                  <li><a href="#">Animal Breeders</a></li>
+                  <li><a href="#">Pharmaceutical Industry</a></li>
+                  <li><a href="#">Poultry Vets</a></li>
+                  <li><a href="#">Supermarkets</a></li>
+                </ul>--></li>
+              <li>
+                <a href="../genomics/index.html">Genomics</a></li>
+              <li>
+                 <a href="../education/index.html">Education &amp; Events</a>
+              <li class="dropdown">
+                <a href="../about/index.html" class="dropdown-toggle" data-toggle="dropdown">About us<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                <li><a href="../about/index.html">About NARF</a></li>
+                  <li><a href="../about/impact.html">Impact</a></li>
+                  <li><a href="../about/funding.html">Funding</a></li>
+                  <li><a href="../about/opportunities.html">Funding</a></li>
+                  <!--<li><a href="#">Public Sector</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Governance</a></li>-->
+                </ul>
+              </li>
+              <li><a href="../news/index.html">News</a></li>
+              <li><a href="../contact.html">Contact us</a></li>
+              
+            </ul>
+        </div><!--/.nav-collapse -->
+
+        </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->
+
+<div id="push"></div>
+<div id="push"></div>
+   <div class="container"><!-- TemplateBeginEditable name="Editable Region" -->
+             
+
+
+<div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+<?PHP
+	$query = "SELECT strain FROM chickStrains ORDER BY strain";
+	$result = bePrepared($parameters,$query,$database);
+	while ($nav_row = mysqli_fetch_object($result)) {
+		if ($row->strain == $nav_row->strain) {
+			echo "<li class=\"active\"><a href=\"//transgenic/".strtolower(str_replace(" ","-",$nav_row->strain))."/\"><i class=\"icon-chevron-right\"></i>".$nav_row->strain."</a></li>"; }
+		else {
+			echo "<li><a href=\"//transgenic/".strtolower(str_replace(" ","-",$nav_row->strain))."/\"><i class=\"icon-chevron-right\"></i>".$nav_row->strain."</a></li>"; }
+		}
+?>
+        </ul>
+</div>
+
+<div class="span1"></div>
+<div class="span8">
+
+
+
+<?PHP
+        $query = "SELECT strain,strainLong,protein,spectra,pattern,availability,description,contact,price FROM chickStrains WHERE strain LIKE ?";
+        $parameters = array("s", $row->strain);
+        $result = bePrepared($parameters,$query,$database);
+
+        while ($row = mysqli_fetch_object($result)) {
+                $strain = $row->strain;
+                echo "<h2>".$row->strainLong." (".$row->strain.")</h2>";
+		echo "<table class=\"table table-hover\">";
+		echo "<thead><tr><th width=\"35%\"></th><th width=\"65%\"></th></tr></thead>";
+		echo "<tbody><tr><td class=\"table-leftcol\">Strain</td><td>".$row->strain."</td></tr>";
+                if ($row->protein != "") echo "<tr><td class=\"table-leftcol\">Protein</td><td>".$row->protein."</td></tr>";
+                if ($row->spectra != "") echo "<tr><td class=\"table-leftcol\">Excitation/Emission Spectra</td><td>".$row->spectra."</td></tr>";
+                if ($row->pattern != "") echo "<tr><td class=\"table-leftcol\">Pattern</td><td>".$row->pattern."</td></tr>";
+                if ($row->availability != "") echo "<tr><td class=\"table-leftcol\">Availability</td><td>".$row->availability."</td></tr>";
+                if ($row->description != "") echo "<tr><td class=\"table-leftcol\">Description</td><td>".$row->description."</td></tr>";
+                if ($row->contact != "") echo "<tr><td class=\"table-leftcol\">Contact</td><td><a href=\"mailto:".$row->contact."\">".$row->contact."</a></td></tr>";
+                if ($row->price != "") echo "<tr><td class=\"table-leftcol\">Price</td><td>".$row->price."</td></tr>";
+		//CHECK FOR USES
+		$query = "SELECT `strain`,`use`,`protocol` FROM chickStrainsUses WHERE strain LIKE ?";
+		$parameters = array("s", $strain);
+		$refResult = bePrepared($parameters,$query,$database);
+		if (mysqli_num_rows($refResult) > '0') {
+			echo "<tr><td rowspan=\"".mysqli_num_rows($refResult)."\" class=\"table-leftcol\">Uses</td>";
+			while ($refRow = mysqli_fetch_object($refResult)) {
+				if ($refRow->protocol != '') {
+					echo "<td><a href=\"//transgenic/protocols/".$refRow->protocol."\">".$refRow->use."</a></td>"; }
+				else {
+					echo "<td>".$refRow->use."</td>"; }
+				echo "</tr>"; }
+		}
+		//CHECK FOR REFENCES
+		$query = "SELECT reference,url FROM chickStrainsReferences WHERE strain LIKE ?";
+		$parameters = array("s", $strain);
+		$refResult = bePrepared($parameters,$query,$database);
+		if (mysqli_num_rows($refResult) > '0') {
+			echo "<tr><td rowspan=\"".mysqli_num_rows($refResult)."\" class=\"table-leftcol\">References</td>";
+			while ($refRow = mysqli_fetch_object($refResult)) {
+				echo "<td><a href=\"".$refRow->url."\">".$refRow->reference."</a></td></tr>"; }
+		}
+                echo "</table>";
+        }
+/*
+
+
+                if ($strain == "MemGFP") {
+                        echo "<div>";
+                        echo "<h3>MemGFP tisssue seen using confocal microscopy</h3>";
+                        echo "<img src=\"//transgenic/MemGFP-tisssue-seen-using-confocal-microscopy_300x300.jpg\" />";
+                        echo "</div>"; }
+                elseif ($strain == "GFP") {
+                        echo "<div class=\"box300 image\">";
+                        echo "<h3>GFP embryo at E1.5</h3>";
+                        echo "<img src=\"//transgenic/GFP-embryo-at-E1-5_300x225.jpg\" />";
+                        echo "</div>"; }
+        }
+        $query = "SELECT reference,url FROM chickStrainsReferences WHERE strain LIKE ?";
+        $parameters = array("s", $strain);
+        $refResult = bePrepared($parameters,$query,$database);
+        if (mysqli_num_rows($refResult) > '0') {
+                echo "<div class=\"box300\">";
+                echo "<h3>References</h3>";
+                echo "<ul>";
+                while ($refRow = mysqli_fetch_object($refResult)) {
+                        echo "<li><a href=\"".$refRow->url."\">".$refRow->reference."</a>";
+                }
+                echo "</ul>";
+                echo "</div>";
+        }
+*/
+?>
+
+</div>
+
+      </div><!-- /.row -->
+   <!-- TemplateEndEditable --><!-- /.row -->
+      
+
+</div><!-- /.container -->
+</div><!-- Close Wrap -->
+<div id="footer">
+      <div class="container">
+
+      <div class="row">
+<div class="span2">
+  <div class="partner"><a href="http://www.wellcome.ac.uk/"><img src="..//img/partners/wellcome-trust.png" alt="Supported by Wellcome Trust"></a></div></div>
+<div class="span2">
+  <div class="partner"><a href="http://www.ed.ac.uk"><img src="..//img/partners/ed-uni.png" alt="The University of Edinburgh"></a></div></div>
+<div class="span2">
+  <div class="partner"><a href="http://www.bbsrc.ac.uk/home/home.aspx"><img src="..//img/partners/bbsrc.png" alt="BBSRC"></a></div></div>
+<div class="span2">
+  <div class="partner"><img src="..//img/partners/roslin-foundation.png" alt="Roslin Foundation"></div>   
+  </div>
+<div class="span2">
+  <div class="partner"><a href="http://www.roslin.ed.ac.uk/"><img src="..//img/partners/roslin.png" alt="The Roslin Institute"></a></div></div>
+<div class="span2">
+  <div class="partner"><a href="http://www.pirbright.ac.uk/"><img src="..//img/partners/pirbright.png" alt="The Pirbright Institute"></a></div></div>
+</div>
+      <div class="row">
+        <div class="span9"></div><div class="span3"><p>&copy; NARF 2013 | <a href="..//privacy-cookies.html">Privacy & Cookies</a></p>
+      </div></div>
+      
+      </div>
+	</div><!-- /.container -->
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="..//js/jquery.js"></script>
+    <script src="..//js/bootstrap-transition.js"></script>
+    <script src="..//js/bootstrap-alert.js"></script>
+    <script src="..//js/bootstrap-modal.js"></script>
+    <script src="..//js/bootstrap-dropdown.js"></script>
+    <script src="..//js/bootstrap-scrollspy.js"></script>
+    <script src="..//js/bootstrap-tab.js"></script>
+    <script src="..//js/bootstrap-tooltip.js"></script>
+    <script src="..//js/bootstrap-popover.js"></script>
+    <script src="..//js/bootstrap-button.js"></script>
+    <script src="..//js/bootstrap-collapse.js"></script>
+    <script src="..//js/bootstrap-carousel.js"></script>
+    <script src="..//js/bootstrap-typeahead.js"></script>
+    <script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+    </script>
+    <script src="..//js/holder/holder.js"></script>
+  </body>
+</html>

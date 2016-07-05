@@ -1,0 +1,65 @@
+<?PHP
+    include $_SERVER['DOCUMENT_ROOT'].'/../secure/includes/database_connect.inc';
+
+	$query = "SELECT strain,strainLong,protein,spectra,pattern,availability,description,contact,price FROM chickStrains WHERE strain = ?";
+
+	$parameters = array("s", $_POST['strain']);
+
+	$result = bePrepared($parameters,$query,$database);
+
+	while ($row = mysqli_fetch_object($result)) {
+
+		echo "<table class=\"table table-hover\">";
+		echo "<tr><td class=\"table-leftcol\">Strain</td><td>".$row->strain."</td></tr>";
+
+		if ($row->protein != "") echo "<tr><td class=\"table-leftcol\">Protein</td><td>".$row->protein."</td></tr>";
+		if ($row->spectra != "") echo "<tr><td class=\"table-leftcol\">Excitation/Emission Spectra</td><td>".$row->spectra."</td></tr>";
+		if ($row->pattern != "") echo "<tr><td class=\"table-leftcol\">Pattern</td><td>".$row->pattern."</td></tr>";
+		if ($row->availability != "") echo "<tr><td class=\"table-leftcol\">Availability</td><td>".$row->availability."</td></tr>";
+		if ($row->description != "") echo "<tr><td class=\"table-leftcol\">Description</td><td>".$row->description."</td></tr>";
+		if ($row->contact != "") echo "<tr><td class=\"table-leftcol\">Contact</td><td><a href=\"mailto:".$row->contact."\">".$row->contact."</a></td></tr>";
+		if ($row->price != "") echo "<tr><td class=\"table-leftcol\">Price</td><td>".$row->price."</td></tr>";
+
+		$query = "SELECT `strain`,`use`,`protocol` FROM chickStrainsUses WHERE strain = ?";
+
+		$parameters = array("s", $_POST['strain']);
+
+		$refResult = bePrepared($parameters,$query,$database);
+
+		if (mysqli_num_rows($refResult) > '0') {
+
+			echo "<tr><td class=\"table-leftcol\">Uses</td><td><ul>";
+
+			while ($refRow = mysqli_fetch_object($refResult)) {
+
+				if ($refRow->protocol != '') {
+					echo "<li><a href=\"/transgenic/protocols/".$refRow->protocol."\">".$refRow->use."</a></li>"; 
+                }
+				else {
+					echo "<li>".$refRow->use."</li>"; 
+                }
+			}
+
+			echo "</ul></td></tr>";
+		}
+
+		$query = "SELECT reference,url FROM chickStrainsReferences WHERE strain = ?";
+
+		$parameters = array("s", $_POST['strain']);
+
+		$refResult = bePrepared($parameters,$query,$database);
+
+		if (mysqli_num_rows($refResult) > '0') {
+
+			echo "<tr><td class=\"table-leftcol\">Key<br />References</td><td><ul>";
+
+			while ($refRow = mysqli_fetch_object($refResult)) {
+				echo "<li><a href=\"".$refRow->url."\">".$refRow->reference."</a>";
+			}
+
+			echo "</ul></td></tr>";
+		}
+
+		echo "</table>"; 
+    }
+?>

@@ -1,0 +1,43 @@
+<?PHP
+	include $_SERVER['DOCUMENT_ROOT'].'/../secure/includes/database_connect.inc';
+    
+    $query = "SELECT antibody_name, antigen, isotype, species, applications, supplier, product_code, website, reference FROM toolboxAntibodies WHERE antigen_search = ? ORDER BY antibody_name";
+	
+	$parameters = array("s", $_POST['antigen']);
+    
+    $result = bePrepared($parameters,$query,$database);
+	
+	if ($result->num_rows > '0') {
+
+        echo "<table class=\"table table-hover\">";
+	    echo "<tr><th>Antibody Name</th><th>Antigen</th><th>iso type</th><th>Species</th><th>Applications</th><th>Supplier</th><th>References</th></tr>";
+        
+        while ($row = mysqli_fetch_object($result)) {
+		    
+		    echo "<tr>";
+            echo "<td>" . $row->antibody_name . "</td>";
+            echo "<td>" . $row->antigen . "</td>";
+            echo "<td>" . $row->isotype . "</td>";
+            echo "<td>" . $row->species . "</td>";
+            echo "<td>" . $row->applications . "</td>";
+            echo "<td>";
+            switch ($row->supplier) {
+                case "AbD Serotec":
+                    echo "<a href=\"http://www.abdserotec.com/search.html?typeOfSearch=Products&searchTerm=" . $row->antigen . "\">AbD Serotec</a>";
+                    break;
+                case "Southern Biotech":
+                    echo "<a href=\"http://www.southernbiotech.com/productsearch.aspx?kwd=" . $row->antibody_name . "\">Southern Biotech</a>";
+                    break;
+                default:
+                    echo "Contact <a href=\"mailto:narf@roslin.ed.ac.uk\">NARF</a> for more information";
+                    break; 
+            }
+        
+            echo "</td>";
+            echo "<td>" . $row->reference . "</td>";
+            echo "</tr>"; 
+        }
+        
+        echo "</table>"; 
+    }
+?>

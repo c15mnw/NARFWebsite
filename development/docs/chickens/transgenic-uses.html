@@ -1,0 +1,23 @@
+<?PHP
+	include $_SERVER['DOCUMENT_ROOT'].'/../secure/includes/database_connect.inc';
+
+	if (strlen($_POST['uses']) >= '3') {
+
+		$query = "SELECT `use`,`strain` FROM `chickStrainsUses` WHERE `use` LIKE ?";
+
+		$parameters = array("s", "%".$_POST['uses']."%");
+
+		$result = bePrepared($parameters,$query,$database);
+
+		if (mysqli_num_rows($result) > '0') {
+
+			echo "<table class=\"table table-hover\" style=\"border:1px solid #eeeeee;\">";
+
+			while ($row = mysqli_fetch_object($result)) {
+				echo "<tr><td><a class=\"red\" href=\"/transgenic/".strtolower(str_replace(" ","-",$row->strain))."/\">".$row->strain.": ".$row->use."</a></td></tr>"; 
+            }
+
+			echo "</table>";
+		}
+	}
+?>

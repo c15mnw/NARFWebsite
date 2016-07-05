@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>National Avian Research Facility</title>
+    <!-- TemplateEndEditable -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="..//css/bootstrap.css" rel="stylesheet">
+    <link href="..//css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="..//css/docs.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,800' rel='stylesheet' type='text/css'>
+   
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="..//img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="..//img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="..//img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="..//img/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="..//img/ico/favicon.png">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43390855-1', 'narf.ac.uk');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- TemplateEndEditable -->
+  </head>
+
+  <body><div id="wrap">
+
+    <!-- NAVBAR
+    ================================================== -->
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      
+
+           <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+             <div id="sm-navbar-logo"><a class="brand" href="../index.html"><img src="../img/logo-sm.png"></a></div>
+
+          <!-- <a class="brand" href="index.html"><img src="img/narf-logo.png" width="170" height="70"></a>
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed within .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              <li class="active"><div class="well2 well-ard"><a href="../chickens/index.html">Find NARF Chickens</a></div></li>
+             
+              <li class="dropdown">
+                <a href="../biological-toolbox/index.html">Biological Toolbox</a>
+                </li>
+              <li>
+                 <a href="../transgenics/index.html">Transgenics</a>
+                <!-- <ul class="dropdown-menu">
+                  <li><a href="#">Farming Industry</a></li>
+                  <li><a href="#">Animal Breeders</a></li>
+                  <li><a href="#">Pharmaceutical Industry</a></li>
+                  <li><a href="#">Poultry Vets</a></li>
+                  <li><a href="#">Supermarkets</a></li>
+                </ul>--></li>
+              <li>
+                <a href="http://avianbase.narf.ac.uk/">Genomics</a></li>
+              <li>
+                 <a href="../education/index.html">Education &amp; Events</a>
+              <li class="dropdown">
+                <a href="../about/index.html" class="dropdown-toggle" data-toggle="dropdown">About us<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                <li><a href="../about/index.html">About NARF</a></li>
+                  <li><a href="../about/impact.html">Impact</a></li>
+                  <li><a href="../about/funding.html">Funding</a></li>
+                  <li><a href="../about/opportunities.html">Opportunities</a></li>
+                  <!--<li><a href="#">Public Sector</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Governance</a></li>-->
+                </ul>
+              </li>
+              <li><a href="../news/index.html">News</a></li>
+              <li><a href="../contact.html">Contact us</a></li>
+              
+            </ul>
+        </div><!--/.nav-collapse -->
+
+        </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->
+
+<div id="push"></div>
+<div id="push"></div>
+   <div class="container"><!-- TemplateBeginEditable name="Editable Region" -->
+     <div class="row">
+       <div class="span4"></div>
+       <div class="span8">
+         <ul class="breadcrumb">
+           <li><a href="#">Resources</a> <span class="divider">/</span></li>
+           <li><a href="#">Sub Category</a> <span class="divider">/</span></li>
+           <li class="active">Transgenic Chicken Lines</li>
+         </ul>
+       </div>
+     </div>
+     <!-- Three columns of text below the carousel -->
+     <div class="row">
+       <div class="span3 bs-docs-sidebar">
+         <ul class="nav nav-list bs-docs-sidenav">
+           <li><a href="#code"><i class="icon-chevron-right"></i> GFP</a></li>
+           <li class="active"><a href="#typography"><i class="icon-chevron-right"></i>Lox-stop-Lox</a></li>
+           <li><a href="#tables"><i class="icon-chevron-right"></i> MemGFP</a></li>
+           <li><a href="#forms"><i class="icon-chevron-right"></i> Notch Reporter</a></li>
+           <li><a href="#buttons"><i class="icon-chevron-right"></i> PS-CFP</a></li>
+         </ul>
+       </div>
+       <div class="span1"></div>
+       <div class="span8">
+         <h2>Lox-stop-Lox Flourescent Protein Reporter</h2>
+         <table class="table table-hover">
+           <thead>
+             <tr>
+               <th width="35%"></th>
+               <th width="65%"></th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td class="table-leftcol">Strain</td>
+               <td>Lox-stop-Lox</td>
+             </tr>
+             <tr>
+               <td class="table-leftcol">Protein</td>
+               <td>tdTomato</td>
+             </tr>
+             <tr>
+               <td class="table-leftcol">Excitation/Emission Spectra</td>
+               <td>554/581</td>
+             </tr>
+             <tr>
+               <td class="table-leftcol">Pattern</td>
+               <td>Variable - dependant on Cre expression pattern</td>
+             </tr>
+             <tr>
+               <td class="table-leftcol">Availability</td>
+               <td>In consultation - not yet available</td>
+             </tr>
+             <tr>
+               <td class="table-leftcol">Description</td>
+               <td>The inducible expression of tdTomato with LacZ either by Cre protein or  injection of a Cre-expressing plasmid will allow cells or specific cell  populations to be marked.</td>
+             </tr>
+             <tr>
+               <td class="table-leftcol">Contact</td>
+               <td><a href="mailto:helen.sang@roslin.ed.ac.uk">helen.sang@roslin.ed.ac.uk</a></td>
+             </tr>
+             <tr>
+               <td class="table-leftcol">Price</td>
+               <td>Free at present</td>
+             </tr>
+             <tr>
+               <td rowspan="2" class="table-leftcol">Uses</td>
+               <td>gene expression pattern real-time visualisation</td>
+             </tr>
+             <tr>
+               <td>lineage tracing</td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+       <!-- /.span6 -->
+     </div>
+   <!-- TemplateEndEditable --><!-- /.row -->
+      
+
+</div><!-- /.container -->
+</div><!-- Close Wrap -->
+<div id="footer">
+      <div class="container">
+
+      <div class="row">
+      
+      <div class="visible-phone text-center">
+      Our partners:<br><br>
+      <a href="http://www.wellcome.ac.uk/">Wellcome Trust</a>
+      <hr>
+      <a href="http://www.ed.ac.uk">The University of Edinburgh</a>
+      <hr>
+      <a href="http://www.bbsrc.ac.uk/home/home.aspx">BBSRC</a>
+      <hr>
+      <a href="http://www.roslinbiocentre.com/about/what-we-offer/community/tenants/roslin-foundation">Roslin Foundation</a>
+      <hr>
+      <a href="http://www.roslin.ed.ac.uk/">The Roslin Institute</a>
+      <hr>
+      <a href="http://www.pirbright.ac.uk/">The Pirbright Institute</a>
+      <hr>
+      </div>
+      
+<div class="span2">
+  <div class="partner visible-tablet visible-desktop"><a href="http://www.wellcome.ac.uk/"><img src="../img/partners/wellcome-trust.png" alt="Supported by Wellcome Trust"></a></div></div>
+<div class="span2">
+  <div class="partner visible-tablet visible-desktop"><a href="http://www.ed.ac.uk"><img src="../img/partners/ed-uni.png" alt="The University of Edinburgh"></a></div></div>
+<div class="span2">
+  <div class="partner visible-tablet visible-desktop"><a href="http://www.bbsrc.ac.uk/home/home.aspx"><img src="../img/partners/bbsrc.png" alt="BBSRC"></a></div></div>
+<div class="span2">
+  <div class="partner visible-tablet visible-desktop"><a href="http://www.roslinbiocentre.com/about/what-we-offer/community/tenants/roslin-foundation"><img src="../img/partners/roslin-foundation.png" alt="Roslin Foundation"></a></div>   
+  </div>
+<div class="span2">
+  <div class="partner visible-tablet visible-desktop"><a href="http://www.roslin.ed.ac.uk/"><img src="../img/partners/roslin.png" alt="The Roslin Institute"></a></div></div>
+<div class="span2">
+  <div class="partner visible-tablet visible-desktop"><a href="http://www.pirbright.ac.uk/"><img src="../img/partners/pirbright.png" alt="The Pirbright Institute"></a></div></div>
+</div>
+      <div class="row">
+        <div class="span9"></div><div class="span3"><p>&copy; NARF 2013 | <a href="../privacy-cookies.html">Privacy & Cookies</a></p>
+      </div></div>
+      
+      </div>
+	</div><!-- /.container -->
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="..//js/jquery.js"></script>
+    <script src="..//js/bootstrap-transition.js"></script>
+    <script src="..//js/bootstrap-alert.js"></script>
+    <script src="..//js/bootstrap-modal.js"></script>
+    <script src="..//js/bootstrap-dropdown.js"></script>
+    <script src="..//js/bootstrap-scrollspy.js"></script>
+    <script src="..//js/bootstrap-tab.js"></script>
+    <script src="..//js/bootstrap-tooltip.js"></script>
+    <script src="..//js/bootstrap-popover.js"></script>
+    <script src="..//js/bootstrap-button.js"></script>
+    <script src="..//js/bootstrap-collapse.js"></script>
+    <script src="..//js/bootstrap-carousel.js"></script>
+    <script src="..//js/bootstrap-typeahead.js"></script>
+    <script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+    </script>
+    <script src="..//js/holder/holder.js"></script>
+  </body>
+</html>
